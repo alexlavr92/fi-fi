@@ -8,6 +8,12 @@ body {
     color: $color-bg;
 }
 
+@media only screen and (min-width: 1370px) and (max-width: 1599px) {
+    .tdmenu__navbar-wrap>ul>li a {
+        font-size: 13px;
+    }
+}
+
 
 
 .td-hero-3-navigation {
