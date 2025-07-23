@@ -44,7 +44,7 @@
 
         // FIXME: Update this to your desired email address.
 
-        $recipient = "intouch@iappi.tech, lavrinenkoaleksandr92@gmail.com";
+        $recipient = ["intouch@iappi.tech", "lavrinenkoaleksandr92@gmail.com"];
 
 
 
