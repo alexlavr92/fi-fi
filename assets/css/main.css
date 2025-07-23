@@ -9011,4 +9011,47 @@ footer {
   .footer-info {
     font-size: 12px;
   }
+}
+.td-contact-form-box .td-input {
+  text-transform: none;
+}
+.td-contact-form-box .td-input:focus {
+  border-color: #FF9D2C;
+}
+.td-contact-form-box .td-input::-webkit-input-placeholder {
+  text-transform: none;
+}
+.td-contact-form-box .td-input::-moz-placeholder {
+  text-transform: none;
+}
+.td-contact-form-box .td-input:-ms-input-placeholder {
+  text-transform: none;
+}
+.td-contact-form-box .td-input::-ms-input-placeholder {
+  text-transform: none;
+}
+.td-contact-form-box .td-input::placeholder {
+  text-transform: none;
+}
+
+.invalid {
+  position: relative;
+}
+.invalid > .invalid-text {
+  position: absolute;
+  top: 100%;
+  margin-top: 2px;
+  font-size: 12px;
+  color: red;
+  left: 15px;
+  width: 100%;
+  line-height: 100%;
+  width: calc(100% - 30px);
+}
+.invalid label:before {
+  border-color: red;
+}
+
+.td-contact-form-wrap .ajax-response {
+  color: #ffffff;
 }/*# sourceMappingURL=main.css.map */

@@ -14,17 +14,19 @@
 
         $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
 
-        $website = trim($_POST["website"]);
+        $company = trim($_POST["company"]);
 
-        $checkbox = trim($_POST["phone"]);
+        $phone = trim($_POST["phone"]);
 
         $message = trim($_POST["message"]);
+
+        $staff = trim($_POST["staff"]);
 
 
 
         // Check that data was sent to the mailer.
 
-        if ( empty($name)or empty($phone) OR empty($website) OR empty($phone) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if ( empty($name)or empty($phone) OR empty($company) OR empty($staff) OR empty($phone) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
             // Set a 400 (bad request) response code and exit.
 
@@ -42,19 +44,19 @@
 
         // FIXME: Update this to your desired email address.
 
-        $recipient = "founder@stthemes.com";
+        $recipient = "intouch@iappi.tech, lavrinenkoaleksandr92@gmail.com";
 
 
 
         // Set the email subject.
 
-        $sender = "New contact from $name";
+        $sender = "Новая регистраниця на форум F&I";
 
 
 
         //Email Header
 
-        $head = " /// Johanspond \\\ ";
+        $head = " /// Fi & Fi \\\ ";
 
 
 
@@ -66,11 +68,11 @@
 
         $email_content .= "Email: $email\n\n";
 
-        $email_content .= "website: $website\n\n";
+        $email_content .= "company: $ $company\n\n";
 
         $email_content .= "phone: $phone\n\n";
 
-        $email_content .= "Message:\n$message\n";
+        $email_content .= "staff:\n$staff\n";
 
 
 
@@ -88,7 +90,7 @@
 
             http_response_code(200);
 
-            echo "Thank You! Your message has been sent.";
+            echo "Спасибо! Ваша заявка отправлена, мы свяжемся с вами в ближайшее время.";
 
         } else {
 
@@ -96,7 +98,7 @@
 
             http_response_code(500);
 
-            echo "Oops! Something went wrong and we couldn't send your message.";
+            echo "Упс! Произошла ошибка, ваша заявка не отправлена, попробуйте ещё раз или позднее.";
 
         }
 
@@ -108,7 +110,7 @@
 
         http_response_code(403);
 
-        echo "There was a problem with your submission, please try again.";
+        echo "Упс! Ошибка с соединением, ваша заявка не отправлена, попробуйте ещё раз или позднее.";
 
     }
 
