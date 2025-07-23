@@ -63,7 +63,7 @@ $(function () {
 
 					// Set the message text.
 					if (data.responseText !== '') {
-						$(formMessages).text(data.responseText);
+						$(formMessages).html(data.responseText);
 					} else {
 						$(formMessages).text('Упс! Произошла ошибка, ваша заявка не отправлена, попробуйте ещё раз или позднее.');
 					}
