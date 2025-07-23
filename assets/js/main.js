@@ -506,4 +506,75 @@
 		td_tab_line_2();
 	}
 
+	$("body").on("click", ".anchor", function (e) {
+		// e.preventDefault();
+		// console.log('click')
+		// let header_offset = 0,
+		// 	$thisHash = $(this.hash),
+		// 	$thisHashOffset,
+		// 	$duration = 1000,
+		// 	BodyScroll
+		// console.log($thisHash, $thisHashOffset)
+		// console.log(header_offset)
+		// $thisHashOffset = $thisHash.offset().top
+		// let $scrollTop = $thisHashOffset
+		// if (BodyScroll != 0 && BodyScroll != undefined) {
+		//     $scrollTop = $scrollTop + BodyScroll
+		// }
+		// console.log($scrollTop)
+		if ($(window).width() < 1200 && $(this).closest('.tdmobile__menu-outer').length) {
+			$('.tdmobile__menu .close-btn').trigger('click')
+		}
+
+		// $("html, body")
+		// 	.stop()
+		// 	.animate(
+		// 		{
+		// 			scrollTop: $scrollTop,
+		// 		},
+		// 		{
+		// 			duration: $duration, // продолжительность анимации
+		// 			easing: "linear", // скорость анимации
+		// 			queue: false // не ставим в очередь
+		// 		}
+		// 	);
+		// e.preventDefault();
+		// return false;
+	});
+
+	let ScheduleItems
+	if ($('.td-schedule-area:not(.td-schedule-area--2)').length) {
+		ScheduleItems = $('.td-schedule-area:not(.td-schedule-area--2) .td-schedule-item')
+		console.log(ScheduleItems)
+		if (ScheduleItems.length > 7) {
+			console.log(ScheduleItems.eq(6))
+			ScheduleItems.eq(6).nextAll().hide().addClass('hide')
+			ScheduleItems.eq(6).find('.td-schedule-time').addClass('last')
+			ScheduleItems.eq(6).find('.td-schedule-details').addClass('last')
+		}
+	}
+
+	let ScrollTopSchedule
+	$('.td-schedule-area:not(.td-schedule-area--2) .link').on('click', function (e) {
+		e.preventDefault()
+		const $this = $(this)
+		$this.toggleClass('open')
+		if ($this.hasClass('open')) {
+			ScheduleItems.eq(6).nextAll().fadeIn().removeClass('hide')
+			ScheduleItems.eq(6).find('.td-schedule-time').removeClass('last')
+			ScheduleItems.eq(6).find('.td-schedule-details').removeClass('last')
+			ScrollTopSchedule = $(window).scrollTop()
+		}
+		else {
+			ScheduleItems.eq(6).nextAll().hide().addClass('hide')
+			ScheduleItems.eq(6).find('.td-schedule-time').addClass('last')
+			ScheduleItems.eq(6).find('.td-schedule-details').addClass('last')
+			window.scrollTo(0, ScrollTopSchedule)
+		}
+		const TempText = $this.find('span').text(),
+			$thisAttr = $this.find('span').attr('data-text')
+		$this.find('span').text($thisAttr)
+		$this.find('span').attr('data-text', TempText)
+	})
+
 })(jQuery);

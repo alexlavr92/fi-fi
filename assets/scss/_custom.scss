@@ -314,6 +314,10 @@ body {
         img {
             margin-left: 5px;
         }
+
+        &.open img {
+            transform: rotate(180deg);
+        }
     }
 
     .td-schedule-time {

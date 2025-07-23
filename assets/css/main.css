@@ -8218,6 +8218,10 @@ body {
 .td-schedule-area .link img {
   margin-left: 5px;
 }
+.td-schedule-area .link.open img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
 .td-schedule-area .td-schedule-time {
   padding: 20px 60px;
 }
